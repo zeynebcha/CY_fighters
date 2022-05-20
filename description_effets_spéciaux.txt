@@ -1,0 +1,8 @@
+effet spécial 1: 
+Nom : Soin intensif
+description : Un sort de soin adminitré sur un seul tour 
+type : HEAL
+Valeur : 1500
+
+soin_intensif 1 1500
+
