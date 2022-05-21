@@ -1,15 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
-
-enum type {DEGAT, HEAL, BOOST};
-/*v=strcmp(s, "DEGAT")*/
+#include <string.h>
 typedef struct{  //Création de la structure Special
   char *nom;
-  char *description;
+ /* char *description;*/
   int nmb_tourActif;
   int nmb_tourRecharge;
-  int valeur;
-  enum type spe_type ;
+  int valeur; //0=DEGAT, 1=HEAL, 2=BOOST
+  int spe_type ;
 }Special;
 
 typedef struct{  //Création de la structure Fighter
@@ -33,61 +31,58 @@ typedef struct{  //Création de la structure Team
   Fighter f3;
 }Team;
 
-int nmbr_char_ligne(FILE *fichier){//Fonction qui calcule le nombre de caractères de la plus longue ligne dans un fichier
-  int compt=0,max=0;
-  int c=fgetc(fichier);
-  while (c!=EOF){//la boucle s'arrête à  la fin du fichier
-    while(fgetc(fichier)!=':');//récupérer les lignes après les deux points dans le fichier
-    while (c!='\n'&& c!=EOF){ //boucle pour calculer le nombre de caractères par ligne 
-      compt++;
-      c=fgetc(fichier);
-    }
-    if (max<compt){
-      max=compt;
-    } 
-  } 
-  return max;
-}
-
-Special construct_spe(){  //constructeur de la structure Special
-  Special effet;
-  int n;
-  char *s;
+Special construct_spe(int pos_ligne){  //constructeur de la structure Special
+  Special s;
+  int l,c,n=0;
+  char buffer[1000];
   FILE *fichier1;
   fichier1=fopen("description_effets_spéciaux.txt","r+");//ouverture du fichier des effets spéciaux
-  if (fichier1==NULL){// verification
-      printf("Ouverture du fichier impossible\n");
-      exit(1);
+  if (fichier1==NULL){// verification de l'ouverture du fichier
+    printf("Ouverture du fichier impossible\n");
+    exit(1);
+  }
+  c=fgetc(fichier1);
+  while (n!=pos_ligne){
+    while (c!='\n'){
+      fgetc(fichier1);
     }
-  n=nmbr_char_ligne(fichier1);//récupération du n max de caractères par lignes dans le fichier
-  effet.nom=malloc(n*sizeof(char));
-  if (effet.nom==NULL){ //vérification allocation mémoire
-      printf ("Erreur allocation mémoire\n");
-      exit(1);
-    }
-  fscanf(fichier1,"Nom : %s", effet.nom);
-  effet.description=malloc(n*sizeof(char));
-  if (effet.description==NULL){ //vérification allocation mémoire
+  n++;
+  }
+  fscanf(fichier1, "%s", buffer);//récupération du premier mot 
+  l=strlen(buffer);
+  s.nom=malloc((l+1)*sizeof(char));
+  if (s.nom==NULL){ //vérification allocation mémoire
     printf ("Erreur allocation mémoire\n");
     exit(1);
   }
-  fscanf(fichier1, "Description : %s", effet.description);
-  s=malloc(n*sizeof(char));
-  fscanf(fichier1, "Type : %s", s);
-  if (!strcmp(s, "DEGAT")){
-    effet.spe_type = DEGAT;
-  }else  if (!strcmp(s, "HEAL")){
-    effet.spe_type = HEAL;
-  } else if (!strcmp(s, "BOOST")){
-    effet.spe_type = BOOST;
-  }
-  fscanf((fichier1,  "%d", &effet.valeur));
-  fclose (fichier1);
-  return effet;
+  strcpy(s.nom,buffer);// copie de la chaine de buffer dans nom
+  fscanf(fichier1,"%d",&s.spe_type);// récupération de la valeur du type du fichier texte 
+  fscanf(fichier1,"%d", &s.valeur); // récupération de la valeur du coup spécial du fichier texte
+  fclose (fichier1);// fermeture du fichier
+  return s;
 }
 
 Fighter construct_fighter(){ //constructeur de la structure Fighter
-  
+  Fighter f;
+  FILE *fichier2;
+  FILE *fichier1;
+  char buffer[1000];
+  fichier2=fopen("combattants.txt","r+");// ouverture du fichier texte des effets spéciaux
+  if(fichier2==NULL){//verification ouverture du fichier
+    printf("Ouverture du fichier impossible\n");
+    exit(1);
+  }
+  fscanf(fichier2, "%s",f.name); //récupérer le nom du fichier texte
+  fscanf(fichier2,"%s",f.rang);// récupérer le rang du fichier texte 
+  fscanf(fichier2,"%d",&f.max_health); // récupérer la valeur de max_health du fichier
+  fscanf(fichier2,"%d",&f.health);// récupérer la valeur de health du fichier 
+  fscanf(fichier2,"%d",&f.attack);// récupérer la valeur des attaques du fichier texte
+  fscanf(fichier2,"%d",&f.defense);// récupérer la valeur des défenses du fichier texte
+  fscanf(fichier2, "%d",&f.dodge);// récupérer la veleur des esquives du fichier texte 
+  fscanf(fichier2,"%s",&f.speed);// récupérer la valeur de la vitesse du fichier texte
+  fscanf(fichier2, "%s", buffer);
+  fclose(fichier2);// fermeture du fichier 
+  return f;
 }
 
 Team construct_team(){  //constructeur de la structure Team
@@ -138,18 +133,18 @@ void fight2(Team t1, Team t2){  //procédure de combat d'un Joueurs VS un Joueur
 }
 
 int main(void){
-  int mode1 = 0;
-  int mode2 = 0;
-  Do{
+  int mode_jeu = 0;
+  int dif = 0;
+  do{
     printf("Quel mode de jeux voulez-vous ?\n1 : pour Joueur VS Machine \n2 : pour Joueur VS Joueur");
-  scanf("%d", &mode1);
-  while((mode1 != 1) || (mode1 != 2));  //test de vérification
+  scanf("%d", &mode_jeu);
+  }while((mode_jeu != 1) || (mode_jeu != 2));  //test de vérification
 
-  if(mode == 1){  //pour lancer le 1er mode : Joueur VS Machine
-    Do{
+  if(mode_jeu == 1){  //pour lancer le 1er mode : Joueur VS Machine
+    do{
       printf("Choix du mode de difficulté : \n1 : pour Noob \n2 : pour Facile \n3 : pour Moyen \n4 : pour Difficile \n5 : pour Torture \n");
-    scanf("%d", &mode2)
-    while((mode2 < 1) || (mode2 > 5);
+      scanf("%d", &dif);
+    }while((dif < 1) || (dif > 5));
     combat1();
   }
     

@@ -1,8 +1,5 @@
-effet spécial 1: 
-Nom : Soin intensif
-description : Un sort de soin adminitré sur un seul tour 
-type : HEAL
-Valeur : 1500
-
 soin_intensif 1 1500
+charge_shot 0 2000
+tornade 0 1000
+aspiration 0+2 25000
 
