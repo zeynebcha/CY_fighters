@@ -1,5 +1,10 @@
 soin_intensif 1 1500
 charge_shot 0 2000
 tornade 0 1000
-aspiration 0+2 25000
-
+aspiration 0+2 2600
+tempête 2 2000
+epée_ultime 0 400
+barrière_protectrice 2 600
+medusa 0 900
+descente_soignante 1 1800
+boost_suprême 2 1000
