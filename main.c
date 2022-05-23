@@ -10,6 +10,8 @@ typedef struct{  //Création de la structure Special
   int spe_type ;
 }Special;
 
+hsdhudgfgfuq
+QBBQJDQJS
 typedef struct{  //Création de la structure Fighter
   char name[50];
   char rang;
