@@ -1,3 +1,5 @@
+#include "struct.h"
+
 void disp_align(char chain[], int place){
   int compt = strlenght(chain);
   if(place == 0){ //0 correspond à la fin des encadrés
