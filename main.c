@@ -27,10 +27,8 @@ typedef struct{
 
 typedef struct{  //Création de la structure Team
   int players;
-  char* name;
-  Fighter f1;
-  Fighter f2;
-  Fighter f3;
+  char name[100];
+  Fighter *f;
 }Team;
 
 Special construct_spe(int pos_ligne){  //constructeur de la structure Special
@@ -73,13 +71,13 @@ Fighter construct_fighter(){ //constructeur de la structure Fighter
     exit(1);
   }
   fscanf(fichier2, "%s",f.name); //récupérer le nom du fichier texte
-  fscanf(fichier2,"%s",f.rang);// récupérer le rang du fichier texte 
+  fscanf(fichier2,"%c",f.rang);// récupérer le rang du fichier texte 
   fscanf(fichier2,"%d",&f.max_health); // récupérer la valeur de max_health du fichier
   fscanf(fichier2,"%d",&f.health);// récupérer la valeur de health du fichier 
   fscanf(fichier2,"%d",&f.attack);// récupérer la valeur des attaques du fichier texte
   fscanf(fichier2,"%d",&f.defense);// récupérer la valeur des défenses du fichier texte
   f.dodge=rand()%11 +1; 
-  fscanf(fichier2,"%s",&f.speed);// récupérer la valeur de la vitesse du fichier texte
+  fscanf(fichier2,"%d",&f.speed);// récupérer la valeur de la vitesse du fichier texte
   fscanf(fichier2, "%d", f.sp_attack);// récupérer l'effet special du combattant
   fscanf(fichier2,"%d",&f.spe_effects);//récupérer la valeur de la durée de l'effet 
   fclose(fichier2);// fermeture du fichier 
@@ -87,7 +85,22 @@ Fighter construct_fighter(){ //constructeur de la structure Fighter
 }
 
 Team construct_team(){  //constructeur de la structure Team
-  
+  Team t;
+  do{
+  printf ("saisissez le nombre de joueurs :\n");
+  scanf ("%d",&t.players);
+  }while (t.players<2);
+  printf ("Saisissez le nom de votre equipe:\n");
+  scanf ("%s",t.name);
+  t.f=malloc(t.players*sizeof(Fighter));
+  if (t.f==NULL){
+    printf ("erreur allocation memoire\n");
+    exit(1);
+  }
+  for (int i=0; i<t.players; i++){
+    t.f[i]=construct_fighter();
+  }
+  return t;
 }
 
 void disp_align(char chain[], int place){
@@ -128,7 +141,8 @@ void fight1(){  //procédure de combat d'un Joueur VS Machine
 }
 
 void fight2(Team t1, Team t2){  //procédure de combat d'un Joueurs VS un Joueur
-  while((t1 > 0) && (t2 > 0)){
+  while((t1.players > 0) && (t2.players > 0)){
+    
     
   }
 }
