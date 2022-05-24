@@ -64,8 +64,6 @@ Special construct_spe(int pos_ligne){  //constructeur de la structure Special
 Fighter construct_fighter(){ //constructeur de la structure Fighter
   Fighter f;
   FILE *fichier2;
-  FILE *fichier1;
-  char buffer[1000];
   fichier2=fopen("combattants.txt","r+");// ouverture du fichier texte des effets spéciaux
   if(fichier2==NULL){//verification ouverture du fichier
     printf("Ouverture du fichier impossible\n");
@@ -77,9 +75,10 @@ Fighter construct_fighter(){ //constructeur de la structure Fighter
   fscanf(fichier2,"%d",&f.health);// récupérer la valeur de health du fichier 
   fscanf(fichier2,"%d",&f.attack);// récupérer la valeur des attaques du fichier texte
   fscanf(fichier2,"%d",&f.defense);// récupérer la valeur des défenses du fichier texte
-  fscanf(fichier2, "%d",&f.dodge);// récupérer la veleur des esquives du fichier texte 
+  f.dodge=rand()%11 +1; 
   fscanf(fichier2,"%s",&f.speed);// récupérer la valeur de la vitesse du fichier texte
-  fscanf(fichier2, "%s", buffer);
+  fscanf(fichier2, "%d", f.sp_attack);// récupérer l'effet special du combattant
+  fscanf(fichier2,"%d",&f.spe_effects);//récupérer la valeur de la durée de l'effet 
   fclose(fichier2);// fermeture du fichier 
   return f;
 }
