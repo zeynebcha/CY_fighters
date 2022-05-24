@@ -1,4 +1,6 @@
-#include "struct.h"
+#include"struct.h"
+#include"combat.h"
+
 
 void disp_align(char chain[], int place){
   int compt = strlenght(chain);
