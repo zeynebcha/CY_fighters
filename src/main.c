@@ -1,36 +1,32 @@
 #include "struct.h"
 #include "combat.h"
 void disp_align(char chain[], int place){
-    int compt = strlenght(chain);
-    if(place == 0){ //0 correspond à la fin des encadrés
-        for(int i = 0; i < compt;i++){
-            printf("_");
-        }
-        printf("\n");
+  int compt = strlenght(chain);
+  if(place == 0){ //0 correspond à la fin des encadrés
+    for(int i = 0; i < compt;i++){
+      printf("_");
     }
-    if(place == 1){
-        for(int i = 0; i < compt;i++){
-            printf("_");
-        }
-        printf("\n");
-    }
-    
-    
+    printf("\n");
+  }    
 }
 
 void display(Team t1, Team t2){  //procédure pour afficher l'interface graphique
-printf("_[%s]______________________________\n", t1.name);   //1ère équipe - adverse
-printf("| |\n");
-printf("|   %s |1|", t1.f1.name);
+printf("_[%s]______________________________\n\n", t1.name);   //1ère équipe - adverse
+  for(int i=0; i < t1.players){
+  printf("   %s |1|\n", t1.f[i].name);
+  if(t1.f[i]->spe_effects == 0){
+    printf("   Subit des dégats\n");   
+  }
+  if(t1.f[i]->spe_effects == 1){
+    printf("   Reçoit du heal\n");
+  }
+  if(t1.f[i]->spe_effects == 2){
+    printf("   Reçoit du boost\n");
+  }
+  printf("   Vie : %d\n",t1.f[i].health);
+  }
 printf("_________________________________");
-
-
-printf("_[%s]______________________________", t2.name); // 2nd équipe - joueur
-
-printf("_________________________________");
-
 }
-
 
 int main(void){
   int mode_jeu = 0;
