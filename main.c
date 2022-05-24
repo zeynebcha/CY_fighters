@@ -1,7 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-typedef struct{  //Création de la structure Special
+#include <time.h>
+//Création de la structure Special
+typedef struct{  
   char *nom;
  /* char *description;*/
   int nmb_tourActif;
@@ -9,7 +11,8 @@ typedef struct{  //Création de la structure Special
   int valeur; //0=DEGAT, 1=HEAL, 2=BOOST
   int spe_type ;
 }Special;
-typedef struct{  //Création de la structure Fighter
+//Création de la structure Fighter
+typedef struct{  
   char name[50];
   char rang;
   int max_health;
