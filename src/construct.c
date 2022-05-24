@@ -4,7 +4,7 @@ Special construct_spe(int pos_ligne){  //constructeur de la structure Special
   int l,c,n=0;
   char buffer[1000];
   FILE *fichier1;
-  fichier1=fopen("description_effets_spéciaux.txt","r+");//ouverture du fichier des effets spéciaux
+  fichier1=fopen("../file/description_effets_spéciaux.txt","r+");//ouverture du fichier des effets spéciaux
   if (fichier1==NULL){// verification de l'ouverture du fichier
     printf("Ouverture du fichier impossible\n");
     exit(1);
@@ -33,7 +33,7 @@ Special construct_spe(int pos_ligne){  //constructeur de la structure Special
 Fighter construct_fighter(){ //constructeur de la structure Fighter
   Fighter f;
   FILE *fichier2;
-  fichier2=fopen("combattants.txt","r+");// ouverture du fichier texte des effets spéciaux
+  fichier2=fopen("../file/combattants.txt","r+");// ouverture du fichier texte des effets spéciaux
   if(fichier2==NULL){//verification ouverture du fichier
     printf("Ouverture du fichier impossible\n");
     exit(1);
