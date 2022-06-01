@@ -9,5 +9,7 @@
 la prof a dit que la description c'etait pas important comme c'est difficile on la laisse à la fin
 a verifier argument fonction constructeur;
 # fonction constructeur fighter : ok
+# fonction constructeur team : ok
+## répartition en fichiers :ok
 
 

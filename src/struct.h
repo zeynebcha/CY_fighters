@@ -1,3 +1,5 @@
+#ifndef structh
+#define structh
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -30,3 +32,4 @@ typedef struct{  //Création de la structure Team
   char name[100];
   Fighter *f;
 }Team;
+#endif
