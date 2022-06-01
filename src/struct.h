@@ -23,6 +23,7 @@ typedef struct{
   int defense;
   int dodge;
   int speed;
+  int alive; //1=vivant ou 0=mort 
   Special sp_attack;
   int spe_effects;
 }Fighter;

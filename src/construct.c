@@ -48,6 +48,7 @@ Fighter construct_fighter(){ //constructeur de la structure Fighter
   fscanf(fichier2,"%d",&f.defense);// récupérer la valeur des défenses du fichier texte
   f.dodge=rand()%11 +1; 
   fscanf(fichier2,"%d",&f.speed);// récupérer la valeur de la vitesse du fichier texte
+  fscanf(fichier2,"%d",&f.alive);
   fscanf(fichier2, "%s", nom_effet);// récupérer le nom de l'effet spécial
   f.sp_attack=construct_spe(nom_effet); // constructeur de l'effet spécial 
   fscanf(fichier2,"%d",&f.spe_effects);//récupérer la valeur de la durée de l'effet 

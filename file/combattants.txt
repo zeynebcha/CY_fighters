@@ -1,10 +1,10 @@
-Miroveed A 14040 14040 1564 1079 96 soin_intensif NULL
-Iela S 21480 21480 793 1354 97 medusa NULL
-Nallmar B 18825 18825 1520 804 107 descente_soignante NULL
-Arrion B 16020 16020 1674 837 104 epée_ultime NULL
-Daera S 19650 19650 1013 1255 106 barrière_protectrice NULL
-Ada A 20145 20145 1255 980 108 boost_suprême NULL
-Tagriel B 31050 31050 1432 1112 85 aspiration NULL
-Lorel B 20805 20805 1002 1189 111 tornade NULL
-Arel B 15690 15690 1696 837 101 charge_shot NULL
-Deam A 18165 18165 1332 1035 115 tempête NULL
+Miroveed A 14040 14040 1564 1079 96 1 soin_intensif NULL
+Iela S 21480 21480 793 1354 97 1 medusa NULL
+Nallmar B 18825 18825 1520 804 107 1 descente_soignante NULL
+Arrion B 16020 16020 1674 837 104 1 epée_ultime NULL
+Daera S 19650 19650 1013 1255 106 1 barrière_protectrice NULL
+Ada A 20145 20145 1255 980 108 1 boost_suprême NULL
+Tagriel B 31050 31050 1432 1112 85 1 aspiration NULL
+Lorel B 20805 20805 1002 1189 111 1 tornade NULL
+Arel B 15690 15690 1696 837 101 1 charge_shot NULL
+Deam A 18165 18165 1332 1035 115 1 tempête NULL
