@@ -1,4 +1,4 @@
-soin_intensif 1 4000
+soin_intensif 1 4000 1 5
 charge_shot 0 2300 1 2
 tornade 0 2060 1 2
 aspiration 2 2600 
