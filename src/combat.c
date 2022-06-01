@@ -14,8 +14,22 @@ void fight1(){  //procédure de combat d'un Joueur VS Machine
 */
 void fight2(Team t1, Team t2){  //procédure de combat d'un Joueurs VS un Joueur
   while((t1.players > 0) && (t2.players > 0)){  
-    float *sd;  // tableau speed
-    sd = malloc((t1.players*2)*sizeof(float)); //initialisation du tableau regroupant les vitesses des combattants
+    int *sd;  // tableau speed
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    sd = malloc((t1.players*2)*sizeof(int)); //initialisation du tableau regroupant les vitesses des combattants
     for(int i=0; i < t1.players; i++){  //remplissage avec team 1
         sd[i] = t1.f[i].speed;
     }
