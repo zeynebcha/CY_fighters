@@ -16,7 +16,7 @@ typedef struct{
 //Création de la structure Fighter
 typedef struct{  
   char name[50];
-  char rang;
+  char rank ;
   int max_health;
   int health;
   int attack;
