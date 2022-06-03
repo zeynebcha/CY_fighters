@@ -1,8 +1,17 @@
 #include "combat.h"
 #include <stdlib.h>
+<<<<<<< HEAD
 //fonction attaque 
 void offensive(Fighter *attacker , Fighter *target){
   
+=======
+#include "struct.h"
+
+void fight1(){  //procédure de combat d'un Joueur VS Machine
+  while(){
+    
+  }
+>>>>>>> 4607a073bf2635b8fb00de47460696c0dca14f79
 }
 
 
@@ -19,8 +28,7 @@ void tour attaque
 void fight(Team t1, Team t2){  //procédure de combat d'un Joueurs VS un Joueur
   while((t1.players > 0) && (t2.players > 0)){  
     int *sd;  // tableau speed
-
-
+    Fighter first_a;
     sd = malloc((t1.players*2)*sizeof(int)); //initialisation du tableau regroupant les vitesses des combattants
     for(int i=0; i < t1.players; i++){  //remplissage avec team 1
         sd[i] = t1.f[i].speed;
@@ -38,10 +46,17 @@ void fight(Team t1, Team t2){  //procédure de combat d'un Joueurs VS un Joueur
         }
         sd[max_s_index] = -1;
         if(max_s_index < t1.players/2){ //team 1 attaque
+<<<<<<< HEAD
 
         }
         else if(max_s_index > t1.players/2){  //team 2 attaque
 
+=======
+          first_a = t1.f[max_s_index];
+        }
+        else{  //team 2 attaque
+          first_a = t2.f[max_s_index - (t2.players/2)];
+>>>>>>> 4607a073bf2635b8fb00de47460696c0dca14f79
         }
 
       }
