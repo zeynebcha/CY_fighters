@@ -1,5 +1,6 @@
 #include "combat.h"
 #include <stdlib.h>
+#include "struct.h"
 
 void fight1(){  //procédure de combat d'un Joueur VS Machine
   while(){
@@ -15,8 +16,7 @@ void fight1(){  //procédure de combat d'un Joueur VS Machine
 void fight2(Team t1, Team t2){  //procédure de combat d'un Joueurs VS un Joueur
   while((t1.players > 0) && (t2.players > 0)){  
     int *sd;  // tableau speed
-
-
+    Fighter first_a;
     sd = malloc((t1.players*2)*sizeof(int)); //initialisation du tableau regroupant les vitesses des combattants
     for(int i=0; i < t1.players; i++){  //remplissage avec team 1
         sd[i] = t1.f[i].speed;
@@ -28,16 +28,16 @@ void fight2(Team t1, Team t2){  //procédure de combat d'un Joueurs VS un Joueur
 
     do{
       max_s_index = 0;
-      for(int i=0; i < strlen(sd); i++){
+      for(int i=0; i < t1.players; i++){
         if(sd[max_s_index] < sd[i]){
           max_s_index = i;
         }
         sd[max_s_index] = -1;
-        if(max_s_index < strlen(sd)/2){ //team 1 attaque
-
+        if(max_s_index < t1.players/2){ //team 1 attaque
+          first_a = t1.f[max_s_index];
         }
-        else if(max_s_index > strlen(sd)/2){  //team 2 attaque
-
+        else{  //team 2 attaque
+          first_a = t2.f[max_s_index - (t2.players/2)];
         }
 
       }
