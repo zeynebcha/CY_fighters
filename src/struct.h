@@ -8,16 +8,18 @@
 typedef struct{  
   char *nom;
  /* char *description;*/
+  int spe_type ;//0=DEGAT, 1=HEAL, 2=BOOST
+  int valeur;
   int nmb_tourActif;
   int nmb_tourRecharge;
-  int valeur; //0=DEGAT, 1=HEAL, 2=BOOST
-  int spe_type ;
+   
+
 }Special;
 //Création de la structure Fighter
 typedef struct{  
   char name[50];
   char rank ;
-  int max_health;
+  int max_health; // constante
   int health;
   int attack;
   int defense;

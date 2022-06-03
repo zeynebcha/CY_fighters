@@ -1,18 +1,22 @@
 #include "combat.h"
 #include <stdlib.h>
-
-void fight1(){  //procédure de combat d'un Joueur VS Machine
-  while(){
-    
-  }
+//fonction attaque 
+void offensive(Fighter *attacker , Fighter *target){
+  
 }
 
+
+
+
+void fight_Machine(){  //procédure de combat d'un Joueur VS Machine
+}
+void tour attaque
 /*
 * procédure de combat d'un Joueurs VS un Joueur
 * @param t1 1ère équipe
 * @param t2 2nd équipe
 */
-void fight2(Team t1, Team t2){  //procédure de combat d'un Joueurs VS un Joueur
+void fight(Team t1, Team t2){  //procédure de combat d'un Joueurs VS un Joueur
   while((t1.players > 0) && (t2.players > 0)){  
     int *sd;  // tableau speed
 
@@ -28,15 +32,15 @@ void fight2(Team t1, Team t2){  //procédure de combat d'un Joueurs VS un Joueur
 
     do{
       max_s_index = 0;
-      for(int i=0; i < strlen(sd); i++){
+      for(int i=0; i < t1.players; i++){
         if(sd[max_s_index] < sd[i]){
           max_s_index = i;
         }
         sd[max_s_index] = -1;
-        if(max_s_index < strlen(sd)/2){ //team 1 attaque
+        if(max_s_index < t1.players/2){ //team 1 attaque
 
         }
-        else if(max_s_index > strlen(sd)/2){  //team 2 attaque
+        else if(max_s_index > t1.players/2){  //team 2 attaque
 
         }
 
@@ -46,15 +50,15 @@ void fight2(Team t1, Team t2){  //procédure de combat d'un Joueurs VS un Joueur
   }
 }
 
-void mode_1(Team t1){ //mode de jeux facile - aucune tech spé - attaque au hasard
+void mode_Easy(Team t1){ //mode de jeux facile - aucune tech spé - attaque au hasard
 
 }
 
-void mode_2(Team t1){  //mode de jeux moyen - aucune tech spé - attaque celui pv plus faible
+void mode_Medium(Team t1){  //mode de jeux moyen - aucune tech spé - attaque celui pv plus faible
 
 }
 
-void mode_3(Team t1){ //mode de jeux difficile - tech spé et cible plus faible allié ou ennemi
+void mode_Difficult(Team t1){ //mode de jeux difficile - tech spé et cible plus faible allié ou ennemi
 
 }
 

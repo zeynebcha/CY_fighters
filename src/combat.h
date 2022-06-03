@@ -1,12 +1,7 @@
 #include "struct.h"
-void fight1(Team t1);
+int Tour_Attaque(Team t1, Team t2, int *sd, int nb_players);
+Fighter* Find_Target(Team t );
+void Offense (Fighter *attacker, Fighter *target);
+void Find_Spe_Off(Fighter *attacker, Fighter *target){}
+void combat (Team t1, Team t2, int mode_jeu);
 
-void fight2(Team t1, Team t2);
-
-void mode_1(Team t1);
-
-void mode_2(Team t1);
-
-void mode_3(Team t1);
-
-void mode_4(Team t1);

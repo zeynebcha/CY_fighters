@@ -60,7 +60,7 @@ Fighter construct_fighter(char *nom_fighter){ //constructeur de la structure Fig
   fscanf(fichier2,"%d",&f.health);// récupérer la valeur de health du fichier 
   fscanf(fichier2,"%d",&f.attack);// récupérer la valeur des attaques du fichier texte
   fscanf(fichier2,"%d",&f.defense);// récupérer la valeur des défenses du fichier texte
-  f.dodge=rand()%11 +1; 
+  f.dodge=rand()%11 +1; // esquive entre 1 et 10
   fscanf(fichier2,"%d",&f.speed);// récupérer la valeur de la vitesse du fichier texte
   fscanf(fichier2,"%d",&f.alive);
   fscanf(fichier2, "%s", nom_effet);// récupérer le nom de l'effet spécial
