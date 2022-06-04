@@ -7,6 +7,7 @@ en fonction de la vitesse et on va appeler la fonction à chaque fois (c'est pou
 
 # Team 1 : Joueur
 # Team 2 : Joueur ou machine 
+# dans une équipe on peut choisir les memes combattants plusieurs fois mais on peut pas choisir le meme combattant que l'equipe adverse
 ## Mode de difficulté
 # Noob : 
 l'ordinateur n'a aucune technnique spéciale et attaque les combattants au hasard et l'équipe est généré aléatoirement
