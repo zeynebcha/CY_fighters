@@ -10,13 +10,13 @@ en fonction de la vitesse et on va appeler la fonction à chaque fois (c'est pou
 # dans une équipe on peut choisir les memes combattants plusieurs fois mais on peut pas choisir le meme combattant que l'equipe adverse
 ## Mode de difficulté
 # Noob : 
-l'ordinateur n'a aucune technnique spéciale et attaque les combattants au hasard
+l'ordinateur n'a aucune technnique spéciale et attaque les combattants au hasard et l'équipe est généré aléatoirement
 # Facile :
-L'ordinateur n'a aucune technique spéciale et attaque systématiquement les combattants qui ont le moins de points de vie 
+L'ordinateur n'a aucune technique spéciale et attaque systématiquement les combattants qui ont le moins de points de vie et l'équipe est généré aléatoirement
 # Moyen : 
-l'ordinateur a des techniques spéciales et cible toujours les plus faibles (alliés ou combattants)
+l'ordinateur a des techniques spéciales et cible toujours les plus faibles (alliés ou combattants) et l'équipe est généré aléatoirement
 # Difficile : 
-
+l'ordinateur a des techniques spéciales et cible toujours les plus faibles (alliés ou combattants) et l'équipe est prédéfini avec des affinités entre les combattants
 
 
 
