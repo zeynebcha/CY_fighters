@@ -20,16 +20,7 @@ int main(void){
     }while((dif < 1) || (dif > 4));// test de vérification
     if(dif >= 1 && dif <= 3){
         // équipe machine généré aléatoirement 
-        combat(t1, computer, 1, dif);
-        if(dif == 1){
-
-        }
-        else if(dif ==2){
-
-        }
-        else if(dif ==3){
-
-        }
+        Combat(t1, computer, 1, dif);
     }
     else{
         // équipe prédéfinie
@@ -44,7 +35,7 @@ int main(void){
         if(team_md == 3){
           printf("Le joueur va jouer contre l'équipe prédéfinie 3 contenant Tagriel, Nallmar, Arrion et Daera\n");
         }
-        combat(t1, computer, 1, dif);
+        Combat(t1, computer, 1, dif);
     }
   }
   else{ //mode joueur vs joueur 
