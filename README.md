@@ -18,5 +18,7 @@ l'ordinateur a des techniques spéciales et cible toujours les plus faibles (all
 # Difficile : 
 l'ordinateur a des techniques spéciales et cible toujours les plus faibles (alliés ou combattants) et l'équipe est prédéfini avec des affinités entre les combattants
 
+Les équipes sont constituées de 4 combattants chacune.
+
 
 
