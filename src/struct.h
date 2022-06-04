@@ -13,14 +13,12 @@ typedef struct{
   int valeur;
   int nmb_tourActif;
   int nmb_tourRecharge;
-   
-
 }Special;
 
 //Création de la structure Fighter
 typedef struct{  
   char name[50];
-  char rank ;
+  char rank;
   int max_health; // constante
   int health;
   int attack;
