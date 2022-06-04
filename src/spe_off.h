@@ -1,4 +1,5 @@
 #include "struct.h"
+
 void Spe_Damage ( Fighter *attacker, Fighter *target);
 void Soin_Intensif(Fighter *attacker, Fighter *target);
 void Aspiration(Fighter *attacker, Fighter *target);

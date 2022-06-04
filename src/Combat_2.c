@@ -14,6 +14,7 @@ Fighter* Find_Target(Team t ){
     target=&t.f[num_target];
     return target;
 }
+
 //Fonction pour trouver une cible aleatoirement
 Fighter* Find_Target_Noob(Team t){
  int  num_target;
@@ -22,6 +23,7 @@ Fighter* Find_Target_Noob(Team t){
     target=&t.f[num_target];
     return target;
 }
+
 //Fonction pour trouver la cible qui le moins de points de vie
 Fighter* Find_Target_Weak(Team t){
     int  num_target=0;
@@ -34,6 +36,7 @@ Fighter* Find_Target_Weak(Team t){
     target=&t.f[num_target];
     return target;
 }
+
 //Fonction attaque
 void Offense (Fighter *attacker, Fighter *target){
     int  val, damage;
@@ -50,6 +53,7 @@ void Offense (Fighter *attacker, Fighter *target){
         printf ("Adversaire trop fort pour lui causer des degats!\n");
     }
 }
+
 //Fonction qui determine et appelle la bonne attaque speciale de type heal
 void Find_Spe_Heal(Fighter *attacker, Fighter *target, Team t_off, Team t_targ){ // t_off=equipe qui attaque et t_targ=equipe qui esquive
     if (strcmp(attacker->sp_attack.nom,"Soin_Intensif")==0){
@@ -66,6 +70,7 @@ void Find_Spe_Heal(Fighter *attacker, Fighter *target, Team t_off, Team t_targ){
         Descente_Soignante(attacker,t_off);
     }
 }
+
 //Fonction qui determine et appelle la bonne attaque speciale de type boost
 void Find_Spe_Boost(Fighter *attacker, Fighter *target, Team t_off, Team t_targ){
     if(strcmp(attacker->sp_attack.nom,"Aspiration")==0){
@@ -85,6 +90,7 @@ void Find_Spe_Boost(Fighter *attacker, Fighter *target, Team t_off, Team t_targ)
         Boost_Supreme(attacker,target);
     }
 }
+
 void Find_Spe_Heal_Ai (Fighter *attacker, Fighter *target, Team t_off, Team t_targ){
       if (strcmp(attacker->sp_attack.nom,"Soin_Intensif")==0){
         do{
@@ -100,6 +106,7 @@ void Find_Spe_Heal_Ai (Fighter *attacker, Fighter *target, Team t_off, Team t_ta
         Descente_Soignante(attacker,t_off);
     }
 }
+
 void Find_Spe_Boost_Ai(Fighter *attacker, Fighter *target, Team t_off, Team t_targ){
 if(strcmp(attacker->sp_attack.nom,"Aspiration")==0){
         do{
@@ -118,6 +125,7 @@ if(strcmp(attacker->sp_attack.nom,"Aspiration")==0){
         Boost_Supreme(attacker,target);
     }
 }
+
 //fonction qui determine l'indice du premier combattant a attaquer
 int Turn_Off(Team t1, Team t2, int *sd, int nb_players){
   int index_max_sd=0;    // index de la vitesse max dans sd

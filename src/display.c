@@ -10,7 +10,6 @@ void disp_align(char chain[]){
     printf("\n");
   }    
 
-
 void display(Team t1, Team t2, Fighter first_a){  //procédure pour afficher l'interface graphique
 printf("_[%s]______________________________\n\n", t1.name);   //1ère équipe - adverse
   for(int i=0; i < t1.players;i++){

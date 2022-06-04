@@ -1,6 +1,7 @@
 #include "struct.h"
 
-Special construct_spe(char *nom){  //constructeur de la structure Special
+//constructeur de la structure Special
+Special construct_spe(char *nom){  
   Special s;
   int l;
   char buffer[1000];
@@ -31,7 +32,9 @@ Special construct_spe(char *nom){  //constructeur de la structure Special
   fclose (fichier1);// fermeture du fichier
   return s;
 }
-Fighter construct_fighter(char *nom_fighter){ //constructeur de la structure Fighter
+
+//constructeur de la structure Fighter
+Fighter construct_fighter(char *nom_fighter){ 
   Fighter f;
   FILE *fichier2;
   char nom_effet[1000];
@@ -70,7 +73,8 @@ Fighter construct_fighter(char *nom_fighter){ //constructeur de la structure Fig
   return f;
 }
 
-Team construct_team(int n){  //constructeur de la structure Team
+//constructeur de la structure Team
+Team construct_team(int n){  
   Team t;
   t.players=n;
   printf ("Saisissez le nom de votre equipe:\n");
