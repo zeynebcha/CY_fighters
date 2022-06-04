@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
+
 //Création de la structure Special
 typedef struct{  
   char *nom;
@@ -15,6 +16,7 @@ typedef struct{
    
 
 }Special;
+
 //Création de la structure Fighter
 typedef struct{  
   char name[50];
@@ -30,7 +32,8 @@ typedef struct{
   int spe_effects;
 }Fighter;
 
-typedef struct{  //Création de la structure Team
+//Création de la structure Team
+typedef struct{  
   int players;
   char name[100];
   Fighter *f;
