@@ -13,5 +13,5 @@ int main(void){
   do{
     printf("Choix du mode de difficulté : \n1 : pour Noob \n2 : pour Facile \n3 : pour Moyen \n3 : pour Difficile \n");
     scanf("%d", &dif);
-  }while((dif < 1) || (dif > 5));// test de vérification
-  combat();
+  }while((dif < 1) || (dif > 3));// test de vérification
+}

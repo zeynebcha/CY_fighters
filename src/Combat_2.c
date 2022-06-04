@@ -14,6 +14,18 @@ Fighter* Find_Target(Team t ){
     target=&t.f[num_target];
     return target;
 }
+//Fonction pour trouver une cible aleatoirement
+Fighter* Find_Target_Noob(Team t){
+ int  num_target;
+   Fighter *target;
+    num_target=rand()%(t.players);//choix aleatoire de l'index de la cible
+    target=&t.f[num_target];
+    return target;
+}
+//Fonction pour trouver la cible qui le moins de points de vie
+Fighter* Find_Target_Easy(Team t){
+    
+}
 //Fonction attaque
 void Offense (Fighter *attacker, Fighter *target){
     int  val, damage;
@@ -69,7 +81,7 @@ int Turn_Off(Team t1, Team t2, int *sd, int nb_players){
 }
 
 
-void Combat (Team t1, Team t2 , int mode_jeu){
+void Combat (Team t1, Team t2 , int mode_jeu, int mode_dif){
     int *sd=NULL;  // tableau speed
     int nb_players, max, type_offense;  
     Fighter *attacker, *target;
@@ -97,38 +109,50 @@ void Combat (Team t1, Team t2 , int mode_jeu){
         scanf ("%d",&type_offense);
         }while (type_offense!=1 || type_offense!=2 || type_offense!= 3);
         switch (type_offense){
-            case 1 :
+        case 1 :
+            break;
+        case 2 : 
+            target=Find_Target(t2);
+            Offense(attacker, target);// attaque
+            break;
+        case 3 : //attaque speciale
+            if (attacker->sp_attack.spe_type==0){//damage
+                target=Find_Target(t2);
+                Spe_Damage(attacker,target);
+            }else if (attacker->sp_attack.spe_type==1){//heal
+                Find_Spe_Heal(attacker, target, t1, t2); //t1=equipe qui attaque et t2= equipe qui esquive
+            }else { //boost
+                Find_Spe_Boost(attacker, target, t1,t2); //t1=equipe qui attaque et t2= equipe qui esquive
+            }
+            break; 
+        }
+    } 
+    else { // c'est l'equipe 2 qui attaque
+        attacker=&t2.f[max-nb_players];
+        if(mode_jeu==1){ //JOUEUR VS MACHINE
+            switch (mode_dif){
+            case 1:
+                target=Find_Target_Noob(t1);
+                Offense(attacker,target);
                 break;
             case 2 : 
-               target=Find_Target(t2);
-                Offense(attacker, target);// attaque
                 break;
-            case 3 : //attaque speciale
-                if (attacker->sp_attack.spe_type==0){//damage
-                    target=Find_Target(t2);
-                    Spe_Damage(attacker,target);
-                }else if (attacker->sp_attack.spe_type==1){//heal
-                    Find_Spe_Heal(attacker, target, t1, t2); //t1=equipe qui attaque et t2= equipe qui esquive
-                }else { //boost
-                    Find_Spe_Boost(attacker, target, t1,t2); //t1=equipe qui attaque et t2= equipe qui esquive
-                }
-                break; 
-        }
-    } else { // c'est l'equipe 2 qui attaque
-        attacker=&t2.f[max-nb_players];
-        if(mode_jeu==1){ //JOUEUR VS MACHINE 
+            case 3 : 
+                break;
+            }
 
-        }else { //JOUEUR VS JOUEUR
-        printf ("Equipe %s c'est a vous d'attaquer avec le combattant %s\n ", t2.name, attacker->name);
-        do{
-            printf ("Comment voulez-vous attaquer ?\n1 : ne pas attaquer \n2 : Attaquer \n3:Faire une attaque speciale\n");// choix du type de l'attaque
-            scanf ("%d",&type_offense);
-        }while (type_offense!=1 || type_offense!=2 || type_offense!= 3);
-        switch (type_offense){
+        }
+        else { //JOUEUR VS JOUEUR
+            printf ("Equipe %s c'est a vous d'attaquer avec le combattant %s\n ", t2.name, attacker->name);
+            do{
+                printf ("Comment voulez-vous attaquer ?\n1 : ne pas attaquer \n2 : Attaquer \n3:Faire une attaque speciale\n");// choix du type de l'attaque
+                scanf ("%d",&type_offense);
+            }while (type_offense!=1 || type_offense!=2 || type_offense!= 3);
+            switch (type_offense){
             case 1 : //ne pas attaquer 
                 break;
             case 2 : 
-               target=Find_Target(t1);
+                target=Find_Target(t1);
                 Offense(attacker, target);// attaque
                 break;
             case 3 : //attaque speciale
@@ -142,6 +166,6 @@ void Combat (Team t1, Team t2 , int mode_jeu){
                 }
                 break; 
             }
-        }
+        }   
     }
 }
