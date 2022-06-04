@@ -24,7 +24,15 @@ Fighter* Find_Target_Noob(Team t){
 }
 //Fonction pour trouver la cible qui le moins de points de vie
 Fighter* Find_Target_Weak(Team t){
-
+    int  num_target=0;
+   Fighter *target;
+   for (int i=0; i<t.players; i++){
+       if (t.f[i].health<t.f[num_target].health){
+           num_target=i;
+       }
+    }
+    target=&t.f[num_target];
+    return target;
 }
 //Fonction attaque
 void Offense (Fighter *attacker, Fighter *target){
@@ -141,7 +149,7 @@ void Combat (Team t1, Team t2 , int mode_jeu, int mode_dif){
             break; 
         }
     } 
-    else { // c'est l'equipe 2 qui attaque
+    else { // EQUIPE 2 ATTAQUE
         attacker=&t2.f[max-nb_players];
         if(mode_jeu==1){ //JOUEUR VS MACHINE
             switch (mode_dif){
@@ -152,8 +160,15 @@ void Combat (Team t1, Team t2 , int mode_jeu, int mode_dif){
                 Offense(attacker,target);
                 break;
             case 2 : 
+                do{
+                    Find_Target_Weak(t1);
+                }while (target->alive==0);
+                Offense(attacker,target);
                 break;
             case 3 : 
+
+                break;
+            case 4 : 
                 break;
             }
 
