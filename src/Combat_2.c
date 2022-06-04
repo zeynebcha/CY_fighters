@@ -1,5 +1,6 @@
 #include "combat.h"
 #include "spe_off.h"
+#include "display.h"
 
 //Fonction pour trouver la cible
 Fighter* Find_Target(Team t ){
