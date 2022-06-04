@@ -10,8 +10,8 @@ Fighter* Find_Target(Team t ){
         printf ("f %d : %s", i, t.f[i].name);
     }
     printf("choisissez le numero du combattant adverse a attaquer : \n"); // choix de la cible
-    scanf("%d", num_target);
-    target= &t.f[num_target];
+    scanf("%d", &num_target);
+    target=&t.f[num_target];
     return target;
 }
 //Fonction attaque
@@ -30,10 +30,34 @@ void Offense (Fighter *attacker, Fighter *target){
         printf ("Adversaire trop fort pour lui causer des degats!\n");
     }
 }
-void Find_Spe_Off(Fighter *attacker, Fighter *target){}
+//Fonction qui determine et appelle la bonne attaque speciale de type heal
+void Find_Spe_Heal(Fighter *attacker, Fighter *target, Team t_off, Team t_targ){ // t_off=equipe qui attaque et t_targ=equipe qui esquive
+    if (strcmp(attacker->sp_attack.nom,"Soin_Intensif")==0){
+        target=Find_Target(t_off);
+        Soin_Intensif(attacker, target);
+    }else if (strcmp(attacker->sp_attack.nom,"Barriere_Protectrice")==0){
+        target=Find_Target(t_targ);
+        Barriere_Protectrice(attacker, target);
+    } else if (strcmp(attacker->sp_attack.nom,"Descente_Soignante")==0){
+        Descente_Soignante(attacker,t_off);
+    }
+}
+//Fonction qui determine et appelle la bonne attaque speciale de type boost
+void Find_Spe_Boost(Fighter *attacker, Fighter *target, Team t_off, Team t_targ){
+    if(strcmp(attacker->sp_attack.nom,"Aspiration")==0){
+        target=Find_Target(t_targ);
+        Aspiration(attacker, target);
+    }else if (strcmp(attacker->sp_attack.nom,"Tempete")==0){
+        target=Find_Target(t_off);
+        Tempete(attacker,target);
+    }else if (strcmp(attacker->sp_attack.nom,"Boost_Supreme")==0){
+        target=Find_Target(t_off);
+        Boost_Supreme(attacker,target);
+    }
+}
 
 //fonction qui determine l'indice du premier combattant a attaquer
-int Tour_Attaque(Team t1, Team t2, int *sd, int nb_players){
+int Turn_Off(Team t1, Team t2, int *sd, int nb_players){
   int index_max_sd=0;    // index de la vitesse max dans sd
   for(int i=0; i < nb_players*2; i++){
       if(sd[index_max_sd] > sd[i]){
@@ -64,7 +88,7 @@ void Combat (Team t1, Team t2 , int mode_jeu){
         sd[i] = t2.f[i].speed;
     }
 
-    max = Tour_Attaque (t1,t2,sd,nb_players);
+    max = Turn_Off (t1,t2,sd,nb_players);
     if (max<nb_players/2){// c'est l'equipe 1 qui attaque 
         attacker=&t1.f[max];
         printf ("Equipe %s c'est a vous d'attaquer avec le combattant %s\n", t1.name,attacker->name);
@@ -79,13 +103,15 @@ void Combat (Team t1, Team t2 , int mode_jeu){
                target=Find_Target(t2);
                 Offense(attacker, target);// attaque
                 break;
-            case 3 : 
-                if (attacker->sp_attack.spe_type==0){
+            case 3 : //attaque speciale
+                if (attacker->sp_attack.spe_type==0){//damage
                     target=Find_Target(t2);
-                }else if (attacker->sp_attack.spe_type==1){
-                    target=Find_Target(t1);
+                    Spe_Damage(attacker,target);
+                }else if (attacker->sp_attack.spe_type==1){//heal
+                    Find_Spe_Heal(attacker, target, t1, t2); //t1=equipe qui attaque et t2= equipe qui esquive
+                }else { //boost
+                    Find_Spe_Boost(attacker, target, t1,t2); //t1=equipe qui attaque et t2= equipe qui esquive
                 }
-                spe_Offense (attacker, target);
                 break; 
         }
     } else { // c'est l'equipe 2 qui attaque
@@ -102,16 +128,18 @@ void Combat (Team t1, Team t2 , int mode_jeu){
             case 1 : //ne pas attaquer 
                 break;
             case 2 : 
-               target=Find_Target(t2);
+               target=Find_Target(t1);
                 Offense(attacker, target);// attaque
                 break;
             case 3 : //attaque speciale
                 if (attacker->sp_attack.spe_type==0){//DAMAGE
-                    target=Find_Target(t2);
-                }else if (attacker->sp_attack.spe_type==1){//HEAL
                     target=Find_Target(t1);
+                    Spe_Damage(attacker, target);
+                }else if (attacker->sp_attack.spe_type==1){//HEAL
+                    Find_Spe_Heal(attacker, target, t2, t1); // t2 = equipe qui attaque et t1= equipe qui esquive
+                }else {
+                    Find_Spe_Boost(attacker,target,t2,t1);// t2 = equipe qui attaque et t1= equipe qui esquive
                 }
-                spe_Offense (attacker, target);
                 break; 
             }
         }

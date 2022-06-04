@@ -1,17 +1,14 @@
 #include "combat.h"
 #include <stdlib.h>
-<<<<<<< HEAD
 //fonction attaque 
 void offensive(Fighter *attacker , Fighter *target){
   
-=======
 #include "struct.h"
 
 void fight1(){  //procédure de combat d'un Joueur VS Machine
   while(){
     
   }
->>>>>>> 4607a073bf2635b8fb00de47460696c0dca14f79
 }
 
 
@@ -46,17 +43,14 @@ void fight(Team t1, Team t2){  //procédure de combat d'un Joueurs VS un Joueur
         }
         sd[max_s_index] = -1;
         if(max_s_index < t1.players/2){ //team 1 attaque
-<<<<<<< HEAD
 
         }
         else if(max_s_index > t1.players/2){  //team 2 attaque
 
-=======
           first_a = t1.f[max_s_index];
         }
         else{  //team 2 attaque
           first_a = t2.f[max_s_index - (t2.players/2)];
->>>>>>> 4607a073bf2635b8fb00de47460696c0dca14f79
         }
 
       }
