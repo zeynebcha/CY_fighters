@@ -15,6 +15,10 @@ int main(void){
   do{
     printf("Choix du mode de difficulté : \n1 : pour Noob \n2 : pour Facile \n3 : pour Moyen \n4 : pour Difficile \n");
     scanf("%d", &dif);
-  }while((dif < 1) || (dif > 3));// test de vérification
-}
+  }while((dif < 1) || (dif > 4));// test de vérification
+  if(dif >= 1 && dif <= 3){
+      // équipe machine généré aléatoirement 
+  }
+  else{
+  }
 }
