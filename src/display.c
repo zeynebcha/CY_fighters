@@ -58,10 +58,10 @@ printf("_[%s]______________________________\n\n", t2.name);   //2nd équipe - jo
     }
   printf("   %s \nTechniques spéciales\n", first_a.name); //affiche le nom du combattant actuel et ses techniques spéciales
   if(first_a.sp_attack.nmb_tourRecharge != 0){
-    printf("   |1| %s durée : %d tour", first_a.sp_attack.nom, first_a.sp_attack.nmb_tourActif);
+    printf("   |1| %s durée : %d tour", first_a.sp_attack.nom, first_a.sp_attack.nmb_tourActif);  //affichage technique spéciale utilisable
   }
   else{
-    printf("   |-| %s durée : %d tour", first_a.sp_attack.nom, first_a.sp_attack.nmb_tourActif);
+    printf("   |-| %s durée : %d tour", first_a.sp_attack.nom, first_a.sp_attack.nmb_tourActif);  //la technique spéciale est en recharge et inutilisable
   }
   
   printf("_________________________________");
