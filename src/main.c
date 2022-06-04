@@ -39,6 +39,7 @@ int main(void){
     }
   }
   else{ //mode joueur vs joueur 
-
+    
+    Combat(t1,t2,1,0);  //0 pour le mode de difficulté puisqu'il n'y en a pas en Joueur vs Joueur
   }
 }
