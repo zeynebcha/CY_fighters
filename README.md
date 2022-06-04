@@ -1,7 +1,7 @@
 ## Combat :
 
 # Fonction tour combat : 
-en fonction de la vitesse et on va appeler la fonction à chaque fois (c'est pour 1 seul combattant)
+En fonction de la vitesse et on va appeler la fonction à chaque fois (c'est pour 1 seul combattant).
 # fonction attaque :
 # fonction attaque special :
 
@@ -33,6 +33,7 @@ Affiche l'interface graphique des deux équipes (1ère adverse et 2nd attaquante
 # Les équipes sont constituées de 4 combattants chacune. Dans une équipe on peut choisir les mêmes combattants plusieurs fois mais on ne peut pas choisir le même combattant que l'equipe adverse.
 
 ## Mode de difficulté
+
 # Noob : 
 L'ordinateur n'a aucune technnique spéciale et attaque les combattants au hasard et l'équipe est généré aléatoirement.
 # Facile :
