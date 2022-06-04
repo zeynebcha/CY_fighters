@@ -24,7 +24,7 @@ Fighter* Find_Target_Noob(Team t){
 }
 //Fonction pour trouver la cible qui le moins de points de vie
 Fighter* Find_Target_Easy(Team t){
-    
+
 }
 //Fonction attaque
 void Offense (Fighter *attacker, Fighter *target){

@@ -15,7 +15,7 @@ L'ordinateur n'a aucune technique spéciale et attaque systématiquement les com
 # Moyen : 
 l'ordinateur a des techniques spéciales et cible toujours les plus faibles (alliés ou combattants)
 # Difficile : 
-
+l'ordinateur a des techniques spéciales et l'equipe est plus forte 
 
 
 
