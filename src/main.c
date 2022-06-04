@@ -5,6 +5,7 @@
 int main(void){
   int mode_jeu = 0;
   int dif = 0;
+  int team_md = 0;
   Team t1,t2;
   srand(time(NULL));
   do{
@@ -20,5 +21,16 @@ int main(void){
       // équipe machine généré aléatoirement 
   }
   else{
+      // équipe prédéfinie
+      team_md = rand()%3 + 1;
+      if(team_md == 1){
+        printf("Le joueur va jouer contre l'équipe prédéfinie 1 contenant Daera, Miroveed, Iela et Arel\n");
+      }
+      if(team_md == 2){
+        printf("Le joueur va jouer contre l'équipe prédéfinie 2 contenant Nallmar, Ada, Deam et Lorel\n");
+      }
+      if(team_md == 1){
+        printf("Le joueur va jouer contre l'équipe prédéfinie 3 contenant Tagriel, Nallmar, Arrion et Daera\n");
+      }
   }
 }
