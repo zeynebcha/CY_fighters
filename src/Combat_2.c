@@ -116,9 +116,9 @@ void Combat (Team t1, Team t2 , int mode_jeu){
         }
     } else { // c'est l'equipe 2 qui attaque
         attacker=&t2.f[max-nb_players];
-        if(mode_jeu==1){ //Joueur VS Machine 
+        if(mode_jeu==1){ //JOUEUR VS MACHINE 
 
-        }else { // joueur VS joueur
+        }else { //JOUEUR VS JOUEUR
         printf ("Equipe %s c'est a vous d'attaquer avec le combattant %s\n ", t2.name, attacker->name);
         do{
             printf ("Comment voulez-vous attaquer ?\n1 : ne pas attaquer \n2 : Attaquer \n3:Faire une attaque speciale\n");// choix du type de l'attaque
