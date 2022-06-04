@@ -29,7 +29,7 @@ int main(void){
       if(team_md == 2){
         printf("Le joueur va jouer contre l'équipe prédéfinie 2 contenant Nallmar, Ada, Deam et Lorel\n");
       }
-      if(team_md == 1){
+      if(team_md == 3){
         printf("Le joueur va jouer contre l'équipe prédéfinie 3 contenant Tagriel, Nallmar, Arrion et Daera\n");
       }
   }
