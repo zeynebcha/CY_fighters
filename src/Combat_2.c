@@ -85,7 +85,39 @@ void Find_Spe_Boost(Fighter *attacker, Fighter *target, Team t_off, Team t_targ)
         Boost_Supreme(attacker,target);
     }
 }
-
+void Find_Spe_Heal_Ai (Fighter *attacker, Fighter *target, Team t_off, Team t_targ){
+      if (strcmp(attacker->sp_attack.nom,"Soin_Intensif")==0){
+        do{
+        target=Find_Target_Weak(t_off);
+        }while(target->alive==0);
+        Soin_Intensif(attacker, target);
+    }else if (strcmp(attacker->sp_attack.nom,"Barriere_Protectrice")==0){
+        do{
+        target=Find_Target_Weak(t_targ);
+        }while (target->alive==0);
+        Barriere_Protectrice(attacker, target);
+    } else if (strcmp(attacker->sp_attack.nom,"Descente_Soignante")==0){
+        Descente_Soignante(attacker,t_off);
+    }
+}
+void Find_Spe_Boost_Ai(Fighter *attacker, Fighter *target, Team t_off, Team t_targ){
+if(strcmp(attacker->sp_attack.nom,"Aspiration")==0){
+        do{
+        target=Find_Target_Weak(t_targ);
+        }while (target->alive==0);
+        Aspiration(attacker, target);
+    }else if (strcmp(attacker->sp_attack.nom,"Tempete")==0){
+        do {
+        target=Find_Target_Weak(t_off);
+        }while(target->alive==0);
+        Tempete(attacker,target);
+    }else if (strcmp(attacker->sp_attack.nom,"Boost_Supreme")==0){
+        do{
+        target=Find_Target_Weak(t_off);
+        }while (target->alive==0);
+        Boost_Supreme(attacker,target);
+    }
+}
 //fonction qui determine l'indice du premier combattant a attaquer
 int Turn_Off(Team t1, Team t2, int *sd, int nb_players){
   int index_max_sd=0;    // index de la vitesse max dans sd
@@ -133,17 +165,17 @@ void Combat (Team t1, Team t2 , int mode_jeu, int mode_dif){
             do {
             target=Find_Target(t2);
             }while(target->alive==0);
-            Offense(attacker, target);// attaque
+            Offense(attacker, target);// ATTAQUE
             break;
-        case 3 : //attaque speciale
-            if (attacker->sp_attack.spe_type==0){//damage
+        case 3 : // ATTAQUE SPECIALE
+            if (attacker->sp_attack.spe_type==0){//DAMAGE
                 do{
                 target=Find_Target(t2);
                 }while(target->alive==0);
                 Spe_Damage(attacker,target);
-            }else if (attacker->sp_attack.spe_type==1){//heal
+            }else if (attacker->sp_attack.spe_type==1){// HEAL
                 Find_Spe_Heal(attacker, target, t1, t2); //t1=equipe qui attaque et t2= equipe qui esquive
-            }else { //boost
+            }else { // BOOST
                 Find_Spe_Boost(attacker, target, t1,t2); //t1=equipe qui attaque et t2= equipe qui esquive
             }
             break; 
@@ -153,22 +185,33 @@ void Combat (Team t1, Team t2 , int mode_jeu, int mode_dif){
         attacker=&t2.f[max-nb_players];
         if(mode_jeu==1){ //JOUEUR VS MACHINE
             switch (mode_dif){
-            case 1:
+            case 1: //MODE NOOB
                 do{
                 target=Find_Target_Noob(t1);
                 }while(target->alive==0);
                 Offense(attacker,target);
                 break;
-            case 2 : 
+            case 2 : //MODE FACILE
                 do{
                     Find_Target_Weak(t1);
                 }while (target->alive==0);
                 Offense(attacker,target);
                 break;
-            case 3 : 
+            case 3 : // MODE MOYEN
+                if (attacker->sp_attack.spe_type==0){//DAMAGE
+                    do{
+                    target=Find_Target_Weak(t1);
+                    }while (target->alive==0);
+                    Spe_Damage(attacker, target);
+                }else if (attacker->sp_attack.spe_type==1){//HEAL
+                   Find_Spe_Heal_Ai(attacker,target, t2,t1); // t2 = equipe qui attaque et t1= equipe qui esquive
+                }else { //BOOST 
+                   Find_Spe_Boost_Ai(attacker,target,t2,t1); // t2 = equipe qui attaque et t1= equipe qui esquive
+                }
 
                 break;
-            case 4 : 
+            case 4 : // MODE DIFFICILE
+                
                 break;
             }
 
@@ -180,15 +223,15 @@ void Combat (Team t1, Team t2 , int mode_jeu, int mode_dif){
                 scanf ("%d",&type_offense);
             }while (type_offense!=1 || type_offense!=2 || type_offense!= 3);
             switch (type_offense){
-            case 1 : //ne pas attaquer 
+            case 1 : // NE PAS ATTAQUER
                 break;
             case 2 : 
                 do{
                 target=Find_Target(t1);
                 }while(target->alive==0);
-                Offense(attacker, target);// attaque
+                Offense(attacker, target);// ATTAQUE
                 break;
-            case 3 : //attaque speciale
+            case 3 : // ATTAQUE SPECIALE
                 if (attacker->sp_attack.spe_type==0){//DAMAGE
                     do{
                     target=Find_Target(t1);
@@ -196,7 +239,7 @@ void Combat (Team t1, Team t2 , int mode_jeu, int mode_dif){
                     Spe_Damage(attacker, target);
                 }else if (attacker->sp_attack.spe_type==1){//HEAL
                     Find_Spe_Heal(attacker, target, t2, t1); // t2 = equipe qui attaque et t1= equipe qui esquive
-                }else {
+                }else { //BOOST 
                     Find_Spe_Boost(attacker,target,t2,t1);// t2 = equipe qui attaque et t1= equipe qui esquive
                 }
                 break; 
