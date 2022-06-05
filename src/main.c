@@ -4,24 +4,42 @@
 
 //Fonction main
 int main(void){
-  int mode_jeu = 0; //variable pour défnir le mode de jeux
-  int dif = 0;  //variable pour définir le mode de difficulté en Joueur VS Machine
-  int team_md = 0;  //variable pour sélectionner une équipe prédéfini en difficulté difficile contre la machine 
-  Team t1,t2;
+  int nb_players, mode_jeu = 0, dif = 0, team_md = 0; 
+  char buff_1[1000],buff_2[1000];
+  Team player_1,player_2,computer;
   srand(time(NULL));
   do{
     printf("Quel mode de jeux voulez-vous ?\n1 : pour Joueur VS Machine \n2 : pour Joueur VS Joueur");  //sélection mode de jeux
-  scanf("%d", &mode_jeu);
+    scanf("%d", &mode_jeu);
   }while((mode_jeu != 1) || (mode_jeu != 2));  //test de vérification
   if (mode_jeu==1){ //mode joueur vs machine
-    Team computer;
     do{
       printf("Choix du mode de difficulté : \n1 : pour Noob \n2 : pour Facile \n3 : pour Moyen \n4 : pour Difficile \n"); //choix mode de difficulté
       scanf("%d", &dif);
     }while((dif < 1) || (dif > 4)); // test de vérification
-    if(dif >= 1 && dif <= 3){
-        // équipe machine généré aléatoirement 
-        Combat(t1, computer, 1, dif); //lancement procédure Combat avec le mode de difficulté choisi contre la machine
+    if(dif >= 1 && dif <= 3){// équipe machine générée aléatoirement 
+        do{
+        printf ("Saisissez le nombre de combattants souhaité \n");
+        scanf("%d",nb_players);
+        }while(nb_players<2);
+        computer = construct_team(nb_players);
+        player_1= construct_team(nb_players);
+        Fighter f_buff;
+        for (int i=0 ; i<nb_players; i++){
+          f_buff.alive=0;
+          while (!f_buff.alive){
+          printf ("saisissez le nom du combattant que vous voulez dans votre equipe :\n");
+          scanf("%s",buff_1);
+          f_buff=player_1.f[i];
+          }
+          f_buff.alive=0;
+          while (!f_buff.alive){
+            
+          }
+
+        }
+      }
+        Combat(player_1, computer, mode_jeu, dif); //lancement procédure Combat avec le mode de difficulté choisi contre la machine
     }
     else{
         // équipe prédéfinie
