@@ -3,13 +3,9 @@
 #include "display.h"
 
 //Fonction pour trouver la cible
-Fighter* Find_Target(Team t ){
+Fighter* Find_Target(Team t){
    int  num_target;
    Fighter *target;
-    printf ("les combattants  de l'equipe adverse: \n");
-    for (int i=1; i<t.players+1; i++){ // affichage de tous les combattants adverses
-        printf ("f %d : %s", i, t.f[i].name);
-    }
     printf("choisissez le numero du combattant adverse a attaquer : \n"); // choix de la cible
     scanf("%d", &num_target);
     target=&t.f[num_target];
@@ -164,8 +160,9 @@ void Combat (Team t1, Team t2 , int mode_jeu, int mode_dif){
         attacker=&t1.f[max];
         printf ("Equipe %s c'est a vous d'attaquer avec le combattant %s\n", t1.name,attacker->name);
         do{
-        printf ("Comment voulez-vous attaquer ?\n1 : ne pas attaquer \n2 : Attaquer \n3:Faire une attaque speciale\n");// choix du type de l'attaque
-        scanf ("%d",&type_offense);
+            display(t2,t1,*attacker);
+            printf ("Comment voulez-vous attaquer ?\n1 : ne pas attaquer \n2 : Attaquer \n3:Faire une attaque speciale\n");// choix du type de l'attaque
+            scanf ("%d",&type_offense);
         }while (type_offense!=1 || type_offense!=2 || type_offense!= 3);
         switch (type_offense){
         case 1 :
