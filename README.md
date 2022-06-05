@@ -41,7 +41,7 @@ L'ordinateur n'a aucune technique spéciale et attaque systématiquement les com
 # Moyen : 
 L'ordinateur a des techniques spéciales et cible toujours les plus faibles (alliés ou combattants) et l'équipe est prédéfinie avec des combattants ayant des affinités faibles.
 # Difficle
-L'ordinateur a des techniques spéciales et cible toujours les plus forts (alliés ou combattants) et l'équipe est prédéfini avec des affinités fortes entre les combattants.
+L'ordinateur a des techniques spéciales et cible toujours les plus faibles (alliés ou combattants) et l'équipe est prédéfini avec des affinités fortes entre les combattants.
 
 ## main :
 
