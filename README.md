@@ -35,13 +35,12 @@ Affiche l'interface graphique des deux équipes (1ère adverse et 2nd attaquante
 ## Mode de difficulté
 
 # Noob : 
-L'ordinateur n'a aucune technnique spéciale et attaque les combattants au hasard et l'équipe est généré aléatoirement.
+L'ordinateur n'a aucune technnique spéciale et attaque les combattants au hasard et l'équipe est prédéfinie avec des combattants ayant des affinités faibles.
 # Facile :
-L'ordinateur n'a aucune technique spéciale et attaque systématiquement les combattants qui ont le moins de points de vie et l'équipe est généré aléatoirement.
+L'ordinateur n'a aucune technique spéciale et attaque systématiquement les combattants qui ont le moins de points de vie et l'équipe est prédéfinie avec des combattants ayant des affinités faibles.
 # Moyen : 
-L'ordinateur a des techniques spéciales et cible toujours les plus faibles (alliés ou combattants) et l'équipe est généré aléatoirement.
-# Difficile : 
-L'ordinateur a des techniques spéciales et cible toujours les plus faibles (alliés ou combattants) et l'équipe est prédéfini avec des affinités entre les combattants.
+L'ordinateur a des techniques spéciales et cible toujours les plus faibles (alliés ou combattants) et l'équipe est prédéfinie avec des combattants ayant des affinités faibles.
+L'ordinateur a des techniques spéciales et cible toujours les plus faibles (alliés ou combattants) et l'équipe est prédéfini avec des affinités fortes entre les combattants.
 
 
 
