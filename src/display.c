@@ -21,7 +21,7 @@ printf("_[%s]______________________________\n\n", t1.name);   //1ère équipe - 
     }
     //affiche les effets spéciaux que subit le combattant
     if(t1.f[i].spe_effects == 0){
-      printf("   Subit des dégats\n");   
+      printf("   Subit des degats\n");   
     }
     if(t1.f[i].spe_effects == 1){
       printf("   Reçoit du heal\n");
@@ -45,7 +45,7 @@ printf("_[%s]______________________________\n\n", t2.name);   //2nd équipe - jo
     }
     //affiches les effets que subit le combattant
     if(t2.f[i].spe_effects == 0){
-      printf("   Subit des dégats\n");   
+      printf("   Subit des degats\n");   
     }
     if(t2.f[i].spe_effects == 1){
       printf("   Reçoit du heal\n");
@@ -55,12 +55,12 @@ printf("_[%s]______________________________\n\n", t2.name);   //2nd équipe - jo
     }
     printf("   Vie : %d\n",t2.f[i].health); //affiche la vie du combattant
     }
-  printf("   %s \nTechniques spéciales\n", first_a.name); //affiche le nom du combattant actuel et ses techniques spéciales
+  printf("   %s \nTechniques speciales\n", first_a.name); //affiche le nom du combattant actuel et ses techniques spéciales
   if(first_a.sp_attack.nmb_tourRecharge != 0){
-    printf("   |1| %s durée : %d tour", first_a.sp_attack.nom, first_a.sp_attack.nmb_tourActif);  //affichage technique spéciale utilisable
+    printf("   |1| %s duree : %d tour", first_a.sp_attack.nom, first_a.sp_attack.nmb_tourActif);  //affichage technique spéciale utilisable
   }
   else{
-    printf("   |-| %s durée : %d tour", first_a.sp_attack.nom, first_a.sp_attack.nmb_tourActif);  //la technique spéciale est en recharge et inutilisable
+    printf("   |-| %s duree : %d tour", first_a.sp_attack.nom, first_a.sp_attack.nmb_tourActif);  //la technique spéciale est en recharge et inutilisable
   }
   
   printf("_________________________________");

@@ -55,9 +55,11 @@ int main(void){
 
       for (int i=0 ; i<nb_players; i++){
         f_buff1.alive=0;
-        while (!f_buff1.alive && strcmp(f_buff1.name,computer.f[i].name)==0){
-          printf ("saisissez le nom du combattant que vous voulez dans votre equipe :\n");
-          scanf("%s",buff_1);
+        while (!f_buff1.alive ){
+          do{
+            printf ("saisissez le nom du combattant que vous voulez dans votre equipe :\n");
+            scanf("%s",buff_1);
+          }while ( strcmp (buff_1, computer.f[i].name)==0);
           f_buff1=construct_fighter(buff_1);
         }
         player_1.f[i]=f_buff1; 
@@ -75,7 +77,7 @@ int main(void){
     }else{ // équipe forte prédéfinie
       do{
         printf ("Saisissez le nombre de combattants souhaite \n");
-        scanf("%d",nb_players);
+        scanf("%d",&nb_players);
       }while(nb_players<2); // test de vérification
       computer = construct_team(nb_players);
       player_1= construct_team(nb_players);
@@ -106,9 +108,11 @@ int main(void){
       }
       for (int i=0 ; i<nb_players; i++){
         f_buff1.alive=0;
-        while (!f_buff1.alive && strcmp(f_buff1.name,computer.f[i].name)==0){
+        while (!f_buff1.alive){
+          do {
           printf ("saisissez le nom du combattant que vous voulez dans votre equipe :\n");
           scanf("%s",buff_1);
+          }while (strcmp(buff_1,computer.f[i].name)==0);
           f_buff1=construct_fighter(buff_1);
         }
         player_1.f[i]=f_buff1;     
@@ -125,12 +129,13 @@ int main(void){
   else { //mode JOUEUR VS JOUEUR
     do{
       printf ("Saisissez le nombre de combattants souhaite \n");
-      scanf("%d",nb_players);
+      scanf("%d",&nb_players);
     }while(nb_players<2);// test de vérification
     printf ("EQUIPE 1 : \n");
     player_1 = construct_team(nb_players);
     printf("EQUIPE 2 : \n");
     player_2= construct_team(nb_players);
+    printf ("----\n");
     for (int i=0; i<nb_players; i++){ // choix des combattants en alternant entre les deux joueurs 
     f_buff2.alive = 0;
     while(!f_buff2.alive){
@@ -144,7 +149,7 @@ int main(void){
       do {
         printf("Equipe2 saisissez le nom du combattant que vous voulez:\n");
         scanf("%s",buff_2);
-      }while(strcmp(buff_1,buff_2)!=0);
+      }while (strcmp(buff_1,buff_2)==0);
       f_buff2 = construct_fighter(buff_2);
     }
       player_2.f[i]=f_buff2;
