@@ -220,7 +220,16 @@ void Combat (Team t1, Team t2 , int mode_jeu, int mode_dif){
 
                 break;
             case 4 : // MODE DIFFICILE
-                
+                if (attacker->sp_attack.spe_type==0){//DAMAGE
+                    do{
+                    target=Find_Target(t1);
+                    }while (target->alive==0);
+                    Spe_Damage(attacker, target);
+                }else if (attacker->sp_attack.spe_type==1){//HEAL
+                    Find_Spe_Heal(attacker, target, t2, t1); // t2 = equipe qui attaque et t1= equipe qui esquive
+                }else { //BOOST 
+                    Find_Spe_Boost(attacker,target,t2,t1);// t2 = equipe qui attaque et t1= equipe qui esquive
+                }
                 break;
             }
 
