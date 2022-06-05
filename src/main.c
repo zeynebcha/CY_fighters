@@ -142,11 +142,11 @@ int main(void){
   Display_Team_Info(player_1);
   Display_Team_Info(player_2);
 
-  while (Team_Alive(player_1) && Team_Alive(player_2)){
+  while ((Team_Alive(player_1) == 1) && (Team_Alive(player_2) == 1)){
    Fight(&player_1, &player_2, mode_jeu, dif);  //0 pour le mode de difficultÃ© puisqu'il n'y en a pas en Joueur vs Joueur
   }
   
-  if (Team_Alive(player_1)){
+  if (Team_Alive(player_1) == 0){
     printf ("%s Vous avez perdu..\n%s Vous avez gagne!!\n",player_1.name,player_2.name);
   } else {
     printf ("%s Vous avez perdu..\n%s Vous avez gagne!!\n",player_2.name,player_1.name);

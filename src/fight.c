@@ -297,7 +297,7 @@ void Fight (Team *t1, Team *t2 , int mode_jeu, int mode_dif){
 
 int Team_Alive(Team t){
     for(int i=0; i<t.players; i++){
-        if(t.f[i].alive) return 1;
+        if(t.f[i].alive == 1) return 1;
     }
     return 0;
 }
