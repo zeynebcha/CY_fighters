@@ -1,16 +1,33 @@
 ## Combat :
 
-# Fonction tour combat : 
-En fonction de la vitesse et on va appeler la fonction à chaque fois (c'est pour 1 seul combattant).
-# fonction attaque : 
+# Fonction Turn_Off : 
+Fonction qui determine qui est le 1er combattant à attaquer en fonction de sa vitesse
+# Procedure Offense: 
 Le combattant attaque la cible choisi juste en enlevant à ces points de vie la valeur de la différence entre l'attaque de l'attaquant et la défense de la cible
-# fonction attaque special :
+# Fonction Find_Target:
+Prend en paramètre l'equipe où on veut trouver la cible et retourne la cible voulue
+# Fonction Find_Target_Noob:
+Prend en paramètre l'equipe où on veut chercher la cible et retourne une cible choisie aléatoirement
+# Fonction Find_Target_Weak:
+Prend en paramètre l'equipe où on veut chercher la cible et retourne la cible avec les points de vie le plus faible
+# Find_Spe_Heal: 
+Recherche le nom de l'attaque spéciale de type heal et appelle la procédure correspondante  
+# Find_Spe_Boost:
+Recherche le nom de l'attaque spéciale de type boost et appelle la procédure correspondante 
+# Find_Spe_Heal_Ai:
+Recherche le nom de l'attaque spéciale de type heal et appelle la procédure correspondante en ciblant toujours la cible la plus faible 
+# Find_Spe_Boost_Ai:
+Recherche le nom de l'attaque spéciale de type boost et appelle la procédure correspondante  en ciblant toujours la cible la plus faible
+
 
 ## Construct :
 
 # Constructeur contruct_spe :
+Fonction qui prend en paramètre le nom de l'attaque spéciale et la retourne
 # Constructeur contruct_fighter :
+Fonction qui prend en paramètre le nom du combattabt et le retourne
 # Constructeur contruct_team :
+Fonction qui prend en paramètre le nombre de joueurs et retourne une équipe
 
 ## Display :
 
@@ -28,11 +45,13 @@ le combattant soigne un allié choisi
 # Procédure Aspiration : 
 l'attaquant ajoute la valeur asp (=la différence entre la defense de la cible et la valeur de son attaque spéciale) à la valeur de sa défense et la retranche de la valeur de défense de la cible
 # Procédure Tempete :
-Augmente les vitesses de l'attaquant et d'un allié
+Augmente les vitesses de l'attaquant et d'un allié choisi 
 # Procédure Barriere_Protectrice :
+Soigne l'attaquant et diminue les esquives du combattant adverse
 # Procédure Descente_Soignante :
+Soigne tous les alliés de l'attaquant
 # Procédure Boost_supreme :
-Augmente les attaques et les esquives de l'attaquant et d'un allié
+Augmente les attaques et les esquives de l'attaquant et d'un allié choisi 
 
 # Team 1 : Joueur
 # Team 2 : Joueur ou machine 
@@ -50,13 +69,16 @@ L'ordinateur a des techniques spéciales et cible toujours les plus faibles (all
 L'ordinateur a des techniques spéciales et cible toujours les plus faibles (alliés ou combattants) et l'équipe est prédéfini avec des affinités fortes entre les combattants.
 
 ## main :
-# Role des variables : 
+
+# Variables : 
 # mode_jeu : 
 variable ppur définir le mode de jeu
 # dif:
 variable pour définir le mode de difficulté dans le mode Joueur VS Machine
-# team_md:
-variable aléatoire pour choisir une des 3 equipes prédéfinies
+# team_md1:
+variable aléatoire pour choisir une des 3 equipes faibles prédéfinies
+# team_md2:
+variable aléatoire pour choisir une des 3 equipes fortes prédéfinies
 # nb_players:
 Variable pour definir le nombre de joueur 
 # buff_1 :
