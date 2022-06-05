@@ -44,13 +44,13 @@ L'ordinateur a des techniques spéciales et cible toujours les plus faibles (all
 L'ordinateur a des techniques spéciales et cible toujours les plus faibles (alliés ou combattants) et l'équipe est prédéfini avec des affinités fortes entre les combattants.
 
 ## main :
-
+# Role des variables : 
 # mode_jeu : 
 variable ppur définir le mode de jeu
 # dif:
 variable pour définir le mode de difficulté dans le mode Joueur VS Machine
 # team_md:
-
+variable aléatoire pour choisir une des 3 equipes prédéfinies
 # nb_players:
 Variable pour definir le nombre de joueur 
 # buff_1 :
