@@ -160,7 +160,7 @@ int Turn_Off(Team t1, Team t2, int *sd, int nb_players){
 }
 
 
-void Combat (Team t1, Team t2 , int mode_jeu, int mode_dif){
+void combat (Team t1, Team t2 , int mode_jeu, int mode_dif){
     int *sd=NULL;  // tableau speed
     int nb_players, max, type_offense;  
     Fighter *attacker, *target;
