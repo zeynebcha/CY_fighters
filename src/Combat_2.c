@@ -237,6 +237,7 @@ void Combat (Team t1, Team t2 , int mode_jeu, int mode_dif){
         else { //JOUEUR VS JOUEUR
             printf ("Equipe %s c'est a vous d'attaquer avec le combattant %s\n ", t2.name, attacker->name);
             do{
+                display(t1,t2,*attacker);
                 printf ("Comment voulez-vous attaquer ?\n1 : ne pas attaquer \n2 : Attaquer \n3:Faire une attaque speciale\n");// choix du type de l'attaque
                 scanf ("%d",&type_offense);
             }while (type_offense!=1 || type_offense!=2 || type_offense!= 3);
