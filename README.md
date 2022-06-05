@@ -1,6 +1,6 @@
 ## Combat :
 
-# Fonction Turn_Off : 
+# Fonction Turn_Of : 
 Fonction qui determine qui est le 1er combattant à attaquer en fonction de sa vitesse
 # Procedure Offense: 
 Le combattant attaque la cible choisi juste en enlevant à ces points de vie la valeur de la différence entre l'attaque de l'attaquant et la défense de la cible
@@ -14,10 +14,18 @@ Prend en paramètre l'equipe où on veut chercher la cible et retourne la cible 
 Recherche le nom de l'attaque spéciale de type heal et appelle la procédure correspondante  
 # Find_Spe_Boost:
 Recherche le nom de l'attaque spéciale de type boost et appelle la procédure correspondante 
-# Find_Spe_Heal_Ai:
+# Find_Spe_Heal_IA:
 Recherche le nom de l'attaque spéciale de type heal et appelle la procédure correspondante en ciblant toujours la cible la plus faible 
-# Find_Spe_Boost_Ai:
+# Find_Spe_Boost_IA:
 Recherche le nom de l'attaque spéciale de type boost et appelle la procédure correspondante  en ciblant toujours la cible la plus faible
+# Procedure Team_Attack_J :
+procédure qui fait attaquer un seul combattant 
+# Procedure Team_Attack_IA :
+procédure qui fait attaquer la machine
+# Procedure Fight :
+procédure qui effectue un tour de combat 
+# Fonction  Team_Alive : 
+Retourne 1 s'il y a un seul combattant vivant dans l'équipe 
 
 
 ## Construct :
@@ -31,12 +39,10 @@ Fonction qui prend en paramètre le nombre de joueurs et retourne une équipe
 
 ## Display :
 
-# Procédure disp_align :
-Récupère la longueur d'une chaîne de caractères afin de pouvoir aligner le bas de l'encadré de l'interface graphique avec le haut peu importe le nombre de caractères du nom de l'équipe.
-# Procédure display :
-Affiche l'interface graphique des deux équipes (1ère adverse et 2nd attaquante) avec toutes les informations de leurs combattants.
+# Procédure Display_Team_Info :
+Affiche l'interface graphique des deux équipes (1ère adverse et 2nd attaquante) avec toutes les informations de leurs combattants: le nom le numero les points de vie et le nom de l'attaque spéciale
 
-## Spe_off :
+## Spe_of :
 
 # Procédure Spe_Damage : 
 le combattant choisi une cible et lui cause des dégats en fonction de la valeur de l'attaque spéciale
@@ -76,10 +82,8 @@ L'ordinateur a des techniques spéciales et cible toujours les plus faibles (all
 variable ppur définir le mode de jeu
 # dif:
 variable pour définir le mode de difficulté dans le mode Joueur VS Machine
-# team_md1:
-variable aléatoire pour choisir une des 3 equipes faibles prédéfinies
-# team_md2:
-variable aléatoire pour choisir une des 3 equipes fortes prédéfinies
+# team_md:
+variable aléatoire pour choisir une des 3 equipes  prédéfinies
 # nb_players:
 Variable pour definir le nombre de joueur 
 # buff_1 :

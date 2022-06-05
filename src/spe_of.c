@@ -11,6 +11,10 @@ void Spe_Damage ( Fighter *attacker, Fighter *target){
     }
     if (damage>0){
         target->health=target->health-damage;
+        if (target->health<=0){
+            target->health=0;
+            target->alive=0;
+        }
         printf ("%s a pris %d de degats et il lui reste %d points de vie \n",target->name,damage,target->health);
     }else {
         printf ("Adversaire trop fort pour lui causer des degats\n");
@@ -25,13 +29,13 @@ void Soin_Intensif(Fighter *attacker, Fighter *target){
     printf ("%s a pris %d de heal et il a donc %d points de vie \n",target->name,heal,target->health);
 }
 
-void Descente_Soignante(Fighter *attacker ,Team t){
+void Descente_Soignante(Fighter *attacker ,Team *t){
     int heal; 
-    for (int i=0; i<t.players; i++){
-        heal = t.f[i].max_health-attacker->sp_attack.valeur;
+    for (int i=0; i<t->players; i++){
+        heal = t->f[i].max_health-attacker->sp_attack.valeur;
         if (heal>0){
-            t.f[i].health=t.f[i].health+heal;
-            printf ("%s a %d points de vie",t.f[i].name,t.f[i].health);
+            t->f[i].health=t->f[i].health+heal;
+            printf ("%s a %d points de vie",t->f[i].name,t->f[i].health);
         }
     }
 }
