@@ -90,14 +90,12 @@ int main(void){
       }   
       
     }
-
+    Display_Fighters();
     for (int i=0 ; i<nb_players; i++){
         f_buff.alive=0;
         while (!f_buff.alive){
-          do {
           printf ("saisissez le nom du combattant que vous voulez dans votre equipe :\n");
           scanf("%s",buff_1);
-          }while (strcmp(buff_1,player_2.f[i].name)==0);
           f_buff=construct_fighter(buff_1);
         }
         player_1.f[i]=f_buff;     
@@ -116,7 +114,7 @@ int main(void){
     printf("EQUIPE 2 : \n");
     player_2= construct_team(nb_players);
     printf ("----\n");
-
+    Display_Fighters();
     for (int i=0; i<nb_players; i++){ // choix des combattants en alternant entre les deux joueurs 
 
       f_buff.alive = 0;
@@ -142,11 +140,11 @@ int main(void){
   Display_Team_Info(player_1);
   Display_Team_Info(player_2);
 
-  while (Team_Alive(player_1) && Team_Alive(player_2)){
+  while (Team_Alive(player_1)!=0 && Team_Alive(player_2)!=0){
    Fight(&player_1, &player_2, mode_jeu, dif);  //0 pour le mode de difficultÃ© puisqu'il n'y en a pas en Joueur vs Joueur
   }
   
-  if (Team_Alive(player_1)){
+  if (Team_Alive(player_1)==0){
     printf ("%s Vous avez perdu..\n%s Vous avez gagne!!\n",player_1.name,player_2.name);
   } else {
     printf ("%s Vous avez perdu..\n%s Vous avez gagne!!\n",player_2.name,player_1.name);

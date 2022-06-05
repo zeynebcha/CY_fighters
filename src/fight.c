@@ -257,9 +257,10 @@ void Fight (Team *t1, Team *t2 , int mode_jeu, int mode_dif){
     /* INIT */
     int nb_players =0;
     int max = 0;  
-    int *sd =NULL;
+    int *sd ;
     Fighter *attacker;
     nb_players=t1->players;
+    printf  ("\n");
     sd= malloc((nb_players*2)*sizeof(int)); // allocation dynamique d'un tableau contenant les vitesses des combattants
     if (sd==NULL){ // verification
         printf("erreur allocation memoire\n");
@@ -277,7 +278,9 @@ void Fight (Team *t1, Team *t2 , int mode_jeu, int mode_dif){
     /* FIGHT */
 
     while(max = Turn_Of(sd,nb_players) != -1){
+        printf ("%d",sd[max]);
         sd[max] = -1; 
+        
         if (max<nb_players/2){// c'est l'equipe 1 qui attaque 
             attacker = &t1->f[max];
             Team_attack_J(t1, t2, attacker);
@@ -297,7 +300,7 @@ void Fight (Team *t1, Team *t2 , int mode_jeu, int mode_dif){
 
 int Team_Alive(Team t){
     for(int i=0; i<t.players; i++){
-        if(t.f[i].alive) return 1;
+        if(t.f[i].alive==1) return 1;
     }
     return 0;
 }

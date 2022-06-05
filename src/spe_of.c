@@ -35,7 +35,7 @@ void Descente_Soignante(Fighter *attacker ,Team *t){
         heal = t->f[i].max_health-attacker->sp_attack.valeur;
         if (heal>0){
             t->f[i].health=t->f[i].health+heal;
-            printf ("%s a %d points de vie",t->f[i].name,t->f[i].health);
+            printf ("%s a %d points de vie \n",t->f[i].name,t->f[i].health);
         }
     }
 }
