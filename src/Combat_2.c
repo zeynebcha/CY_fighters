@@ -58,13 +58,19 @@ void Find_Spe_Heal(Fighter *attacker, Fighter *target, Team t_off, Team t_targ){
         target=Find_Target(t_off);
         }while(target->alive==0);
         Soin_Intensif(attacker, target);
+        target->spe_effects=1;
     }else if (strcmp(attacker->sp_attack.nom,"Barriere_Protectrice")==0){
         do{
         target=Find_Target(t_targ);
         }while (target->alive==0);
         Barriere_Protectrice(attacker, target);
+        attacker->spe_effects=1;
+        target->spe_effects=0;
     } else if (strcmp(attacker->sp_attack.nom,"Descente_Soignante")==0){
         Descente_Soignante(attacker,t_off);
+        for (int i=0; i<t_off.players; i++){
+            t_off.f[i].spe_effects = 1;
+        }
     }
 }
 
@@ -75,16 +81,22 @@ void Find_Spe_Boost(Fighter *attacker, Fighter *target, Team t_off, Team t_targ)
         target=Find_Target(t_targ);
         }while (target->alive==0);
         Aspiration(attacker, target);
+        attacker->spe_effects=2;
+        target->spe_effects=0;
     }else if (strcmp(attacker->sp_attack.nom,"Tempete")==0){
         do {
         target=Find_Target(t_off);
         }while(target->alive==0);
         Tempete(attacker,target);
+        attacker->spe_effects=2;
+        target->spe_effects=2;
     }else if (strcmp(attacker->sp_attack.nom,"Boost_Supreme")==0){
         do{
         target=Find_Target(t_off);
         }while (target->alive==0);
         Boost_Supreme(attacker,target);
+        target->spe_effects=2;
+        attacker->spe_effects=2;
     }
 }
 
@@ -94,13 +106,19 @@ void Find_Spe_Heal_Ai (Fighter *attacker, Fighter *target, Team t_off, Team t_ta
         target=Find_Target_Weak(t_off);
         }while(target->alive==0);
         Soin_Intensif(attacker, target);
+        target->spe_effects=1;
     }else if (strcmp(attacker->sp_attack.nom,"Barriere_Protectrice")==0){
         do{
         target=Find_Target_Weak(t_targ);
         }while (target->alive==0);
         Barriere_Protectrice(attacker, target);
+        attacker->spe_effects=1;
+        target->spe_effects=0;
     } else if (strcmp(attacker->sp_attack.nom,"Descente_Soignante")==0){
         Descente_Soignante(attacker,t_off);
+        for (int i=0; i<t_off.players; i++){
+            t_off.f[i].spe_effects = 1;
+        }
     }
 }
 
@@ -110,16 +128,22 @@ if(strcmp(attacker->sp_attack.nom,"Aspiration")==0){
         target=Find_Target_Weak(t_targ);
         }while (target->alive==0);
         Aspiration(attacker, target);
+        attacker->spe_effects=2;
+        target->spe_effects=0;
     }else if (strcmp(attacker->sp_attack.nom,"Tempete")==0){
         do {
         target=Find_Target_Weak(t_off);
         }while(target->alive==0);
         Tempete(attacker,target);
+        attacker->spe_effects=2;
+        target->spe_effects=2;
     }else if (strcmp(attacker->sp_attack.nom,"Boost_Supreme")==0){
         do{
         target=Find_Target_Weak(t_off);
         }while (target->alive==0);
         Boost_Supreme(attacker,target);
+        target->spe_effects=2;
+        attacker->spe_effects=2;
     }
 }
 
@@ -219,13 +243,13 @@ void Combat (Team t1, Team t2 , int mode_jeu, int mode_dif){
             case 4 : // MODE DIFFICILE
                 if (attacker->sp_attack.spe_type==0){//DAMAGE
                     do{
-                    target=Find_Target(t1);
+                        target=Find_Target_Weak(t1);
                     }while (target->alive==0);
                     Spe_Damage(attacker, target);
                 }else if (attacker->sp_attack.spe_type==1){//HEAL
-                    Find_Spe_Heal(attacker, target, t2, t1); // t2 = equipe qui attaque et t1= equipe qui esquive
+                   Find_Spe_Heal_Ai(attacker,target, t2,t1); // t2 = equipe qui attaque et t1= equipe qui esquive
                 }else { //BOOST 
-                    Find_Spe_Boost(attacker,target,t2,t1);// t2 = equipe qui attaque et t1= equipe qui esquive
+                   Find_Spe_Boost_Ai(attacker,target,t2,t1); // t2 = equipe qui attaque et t1= equipe qui esquive
                 }
                 break;
             }

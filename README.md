@@ -2,7 +2,8 @@
 
 # Fonction tour combat : 
 En fonction de la vitesse et on va appeler la fonction à chaque fois (c'est pour 1 seul combattant).
-# fonction attaque :
+# fonction attaque : 
+Le combattant attaque la cible choisi juste en enlevant à ces points de vie la valeur de la différence entre l'attaque de l'attaquant et la défense de la cible
 # fonction attaque special :
 
 ## Construct :
@@ -20,13 +21,18 @@ Affiche l'interface graphique des deux équipes (1ère adverse et 2nd attaquante
 
 ## Spe_off :
 
-# Procédure Spe_Damage :
-# Procédure Soin_Intensif :
-# Procédure Aspiration :
+# Procédure Spe_Damage : 
+le combattant choisi une cible et lui cause des dégats en fonction de la valeur de l'attaque spéciale
+# Procédure Soin_Intensif : 
+le combattant soigne un allié choisi 
+# Procédure Aspiration : 
+l'attaquant ajoute la valeur asp (=la différence entre la defense de la cible et la valeur de son attaque spéciale) à la valeur de sa défense et la retranche de la valeur de défense de la cible
 # Procédure Tempete :
+Augmente les vitesses de l'attaquant et d'un allié
 # Procédure Barriere_Protectrice :
 # Procédure Descente_Soignante :
 # Procédure Boost_supreme :
+Augmente les attaques et les esquives de l'attaquant et d'un allié
 
 # Team 1 : Joueur
 # Team 2 : Joueur ou machine 
@@ -41,7 +47,7 @@ L'ordinateur n'a aucune technique spéciale et attaque systématiquement les com
 # Moyen : 
 L'ordinateur a des techniques spéciales et cible toujours les plus faibles (alliés ou combattants) et l'équipe est prédéfinie avec des combattants ayant des affinités faibles.
 # Difficle
-L'ordinateur a des techniques spéciales et cible toujours les plus forts (alliés ou combattants) et l'équipe est prédéfini avec des affinités fortes entre les combattants.
+L'ordinateur a des techniques spéciales et cible toujours les plus faibles (alliés ou combattants) et l'équipe est prédéfini avec des affinités fortes entre les combattants.
 
 ## main :
 # Role des variables : 
