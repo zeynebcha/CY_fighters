@@ -71,6 +71,7 @@ L'ordinateur a des techniques spéciales et cible toujours les plus faibles (all
 ## main :
 
 # Variables : 
+
 # mode_jeu : 
 variable ppur définir le mode de jeu
 # dif:

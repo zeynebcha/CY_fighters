@@ -1,5 +1,4 @@
 #include"struct.h"
-#include"combat.h"
 
 //procédure pour aligner les encadrés dans display
 void disp_align(char chain[]){

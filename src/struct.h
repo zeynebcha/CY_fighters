@@ -27,7 +27,7 @@ typedef struct{
   int speed;
   int alive; //1=vivant ou 0=mort 
   Special sp_attack;
-  int spe_effects;
+  int spe_effects; //0= recoit du damage 1=recoit du heal 2= recoit du boost
 }Fighter;
 
 //Création de la structure Team

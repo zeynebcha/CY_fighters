@@ -1,5 +1,5 @@
-#include "combat.h"
-#include "spe_off.h"
+#include "struct.h"
+#include "Spe_off.h"
 #include "display.h"
 
 //Fonction pour trouver la cible
