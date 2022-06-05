@@ -2,6 +2,6 @@
 
 Special construct_spe(char *nom);
 
-Fighter construct_fighter(char *nom_fighter);
+Fighter construct_fighter(const char *nom_fighter);
 
-Team construct_team(int n);
+void construct_team(Team *to_inti, int n);

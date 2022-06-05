@@ -2,10 +2,10 @@
 
 //-----DAMAGE--------
 void Spe_Damage ( Fighter *attacker, Fighter *target){
- int  val, damage;
+ int  val, damage=0;
     val= rand()%15+1;// valeur d'équilibrage
     if (val<target->dodge){// test d'esquive
-     printf ("esquive!%s",target->name);
+     printf ("%s esquive!\n",target->name);
     }else {
         damage= (attacker->sp_attack.valeur+attacker->attack)-target->defense;
     }
@@ -23,14 +23,14 @@ void Spe_Damage ( Fighter *attacker, Fighter *target){
 
 //-----HEAL-------
 void Soin_Intensif(Fighter *attacker, Fighter *target){
-    int  heal;
+    int  heal=0;
     heal= target->max_health-attacker->sp_attack.valeur;
     target->health=target->health+heal;
     printf ("%s a pris %d de heal et il a donc %d points de vie \n",target->name,heal,target->health);
 }
 
 void Descente_Soignante(Fighter *attacker ,Team *t){
-    int heal; 
+    int heal=0; 
     for (int i=0; i<t->players; i++){
         heal = t->f[i].max_health-attacker->sp_attack.valeur;
         if (heal>0){
@@ -41,7 +41,7 @@ void Descente_Soignante(Fighter *attacker ,Team *t){
 }
 
 void Barriere_Protectrice (Fighter *attacker, Fighter *target){
-    int heal, damage;  
+    int heal=0, damage=0;  
     heal = attacker->max_health - attacker->health;
     if (heal>0){
         attacker->health=attacker->health + heal;
@@ -56,7 +56,7 @@ void Barriere_Protectrice (Fighter *attacker, Fighter *target){
 
 //----BOOST-----
 void Aspiration(Fighter *attacker, Fighter *target){
-    int asp;
+    int asp=0;
     asp= target->defense - attacker->sp_attack.valeur;
     if (asp>0){
         attacker->defense+=asp;
@@ -67,7 +67,7 @@ void Aspiration(Fighter *attacker, Fighter *target){
 }
 
 void Tempete(Fighter *attacker, Fighter *target){
-    int increase_speed;
+    int increase_speed=0;
     increase_speed=attacker->sp_attack.valeur;
     attacker->speed=attacker->speed + increase_speed;
     target->speed=target->speed + increase_speed;
@@ -76,7 +76,7 @@ void Tempete(Fighter *attacker, Fighter *target){
 }
 
 void Boost_Supreme (Fighter *attacker, Fighter *target){
-    int boost;
+    int boost=0;
     boost=attacker->sp_attack.valeur;
     attacker->attack+=boost;
     attacker->dodge+=boost;

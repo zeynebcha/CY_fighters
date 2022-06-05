@@ -37,25 +37,28 @@ Fighter* Find_Target_Weak(Team *t){
 
 //Fonction attaque
 void Offense (Fighter *attacker, Fighter *target){
-    int  val, damage;
-    val= rand()%15+1;// valeur d'equilibrage
+    int  val = rand()%15+1; // valeur d'equilibrage
+    int damage = 0;
+
     if (val<target->dodge){
-     printf ("esquive! %s",target->name);
+        printf ("%s esquive! ",target->name);
     }else {
         damage = (attacker->attack) - (target->defense);
-    }
-    if (damage > 0){
-        target->health = target->health - damage;
+        if (damage > 0){
+            target->health = target->health - damage;
 
-        if(target->health <= 0){
-            target->health = 0;
-            target->alive = 0;
+            if(target->health <= 0){
+                target->health = 0;
+                target->alive = 0;
+            }
+
+            printf ("%s a pris %d de degats et il reste %d points de vie \n",target->name,damage,target->health);
+        }else {
+            printf ("Adversaire trop fort pour lui causer des degats!\n");
         }
-
-        printf ("%s a pris %d de degats et il reste %d points de vie \n",target->name,damage,target->health);
-    }else {
-        printf ("Adversaire trop fort pour lui causer des degats!\n");
     }
+
+    
 }
 
 //Fonction qui determine et appelle la bonne attaque speciale de type heal
@@ -158,8 +161,8 @@ if(strcmp(attacker->sp_attack.nom,"Aspiration")==0){
 int Turn_Of(int *sd, int nb_players){
   int index_max_sd=0;    // index de la vitesse max dans sd
   for(int i=0; i < nb_players*2; i++){
-      if(sd[index_max_sd] > sd[i]){
-          index_max_sd= i;
+      if(sd[index_max_sd] < sd[i]){
+          index_max_sd = i;
         }
     }
 
@@ -209,7 +212,7 @@ void Team_attack_J(Team *t_off, Team *t_targ, Fighter *attacker){
 
 void Team_attack_IA(int mode_dif, Team *t_j, Team *t_ia, Fighter *attacker){
     Fighter *target;
-
+    printf ("Equipe %s c'est a vous d'attaquer avec le combattant %s\n", t_ia->name,attacker->name);
     switch (mode_dif){
         case 1: //MODE NOOB
             do{
@@ -272,16 +275,17 @@ void Fight (Team *t1, Team *t2 , int mode_jeu, int mode_dif){
     }
 
     for(int i=nb_players; i <nb_players*2; i++){  //remplissage avec les vitesses des players de team 2
-        sd[i] = t2->f[i].alive ? t2->f[i].speed : -1;
+        sd[i] = t2->f[i-nb_players].alive ? t2->f[i-nb_players].speed : -1;
     }
 
     /* FIGHT */
 
-    while(max = Turn_Of(sd,nb_players) != -1){
-        printf ("%d",sd[max]);
+    max = Turn_Of(sd,nb_players);
+
+    while(max != -1){
         sd[max] = -1; 
         
-        if (max<nb_players/2){// c'est l'equipe 1 qui attaque 
+        if (max < nb_players){// c'est l'equipe 1 qui attaque 
             attacker = &t1->f[max];
             Team_attack_J(t1, t2, attacker);
         } 
@@ -294,6 +298,7 @@ void Fight (Team *t1, Team *t2 , int mode_jeu, int mode_dif){
                 Team_attack_J(t2, t1, attacker);
             }   
         }
+        max = Turn_Of(sd,nb_players);
     }
     
 }
