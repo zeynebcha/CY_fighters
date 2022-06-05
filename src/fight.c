@@ -40,12 +40,12 @@ void Offense (Fighter *attacker, Fighter *target){
     int  val, damage;
     val= rand()%15+1;// valeur d'Ã©quilibrage
     if (val<target->dodge){
-     printf ("esquive!%s",target->name);
+     printf ("esquive! %s",target->name);
     }else {
-        damage= attacker->attack-target->defense;
+        damage = attacker->attack-target->defense;
     }
-    if (damage>0){
-        target->health=target->health-damage;
+    if (damage > 0){
+        target->health = target->health-damage;
 
         if(target->health <= 0){
             target->health = 0;
